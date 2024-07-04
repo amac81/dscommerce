@@ -93,6 +93,7 @@ public class Order {
 		return items;
 	}
 	
+	//Products of this order 
 	public List<Product> getProducts() {
 		return items.stream().map(x -> x.getProduct()).toList();
 	}
