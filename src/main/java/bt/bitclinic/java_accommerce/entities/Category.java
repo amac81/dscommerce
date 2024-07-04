@@ -1,9 +1,13 @@
 package bt.bitclinic.java_accommerce.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,6 +18,9 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	@ManyToMany(mappedBy = "categories")
+	private Set<Product> products = new HashSet<>();
 	
 	public Category() {}
 
@@ -37,7 +44,9 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
+	public Set<Product> getProducts() {
+		return products;
+	}
 
 }
