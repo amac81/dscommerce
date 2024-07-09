@@ -3,6 +3,7 @@ package bt.bitclinic.java_accommerce.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,14 +33,9 @@ public class ProductService {
 	public List<ProductDTO> findAll() {
 		
 		List<Product> result = repository.findAll();
-
-		List <ProductDTO> productsDTO = new ArrayList<>(); 
 		
-		for(Product p: result) {
-			productsDTO.add(new ProductDTO(p));
-		}
-		
-		return productsDTO;
+		//with lambda expression
+		return result.stream().map(x -> new ProductDTO(x)).toList();
 	}
 	
 }

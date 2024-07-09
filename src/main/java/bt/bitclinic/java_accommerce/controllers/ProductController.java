@@ -18,13 +18,14 @@ public class ProductController{
 	@Autowired
 	private ProductService service;
 	
+	@GetMapping(value = "/{id}")
+	public ProductDTO getById(@PathVariable Long id) {
+		return service.findById(id);
+	}
+	
 	@GetMapping
-	public List<ProductDTO> all() {
+	public List<ProductDTO> getAll() {
 		return service.findAll();
 	}
 	
-	@GetMapping(value = "/{id}")
-	public ProductDTO byId(@PathVariable Long id) {
-		return service.findById(id);
-	}
 }
