@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import bt.bitclinic.java_accommerce.dto.ProductDTO;
 import bt.bitclinic.java_accommerce.entities.Product;
@@ -17,6 +18,7 @@ public class ProductService {
 	@Autowired
 	private ProductRepository repository;
 	
+	@Transactional(readOnly = true)
 	public ProductDTO findById(Long id) {
 		
 		Optional<Product> result = repository.findById(id);
@@ -26,6 +28,7 @@ public class ProductService {
 		return productDTO;
 	}
 	
+	@Transactional(readOnly = true)
 	public List<ProductDTO> findAll() {
 		
 		List<Product> result = repository.findAll();
