@@ -1,5 +1,6 @@
 package bt.bitclinic.java_accommerce.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.EmbeddedId;
@@ -8,8 +9,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order_item")
-public class OrderItem {
-	
+public class OrderItem implements Serializable{
+	private static final long serialVersionUID = 1L;
+
 	@EmbeddedId
 	private OrderItemPK id = new OrderItemPK();
 
