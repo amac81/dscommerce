@@ -38,25 +38,37 @@ public class ProductService {
 	}
 	
 	
-	@Transactional(readOnly = false)
+	@Transactional
 	public ProductDTO insert(ProductDTO dto) {
 		
-		Product entity = dtoToEntity(dto); 
+		Product entity = new Product(); 
+		copyDtoToEntity(dto, entity);
+		
+		copyDtoToEntity(dto, entity);
 		entity = repository.save(entity);
 		
 		return new ProductDTO(entity);
 	}
 	
 	
-	private Product dtoToEntity(ProductDTO dto) {
-		Product entity = new Product();
-		
+	private void copyDtoToEntity(ProductDTO dto, Product entity) {
 		entity.setName(dto.getName());
 		entity.setDescription(dto.getDescription());
 		entity.setImgUrl(dto.getImgUrl());
-		entity.setPrice(dto.getPrice());
+		entity.setPrice(dto.getPrice());		
+	}
+
+	@Transactional
+	public ProductDTO update(Long id, ProductDTO dto) {
 		
-		return entity;
+		//does not go to the database; object monitored by JPA
+		Product entity = repository.getReferenceById(id); 
+		
+		copyDtoToEntity(dto, entity);		
+		entity = repository.save(entity);
+		
+		return new ProductDTO(entity);
 	}
 	
+
 }
