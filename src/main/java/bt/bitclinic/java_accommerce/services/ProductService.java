@@ -22,10 +22,10 @@ public class ProductService {
 	public ProductDTO findById(Long id) {
 		
 		Optional<Product> result = repository.findById(id);
-		Product product = result.get();
-		ProductDTO productDTO = new ProductDTO(product);
+		Product entity = result.get();
+		ProductDTO dto = new ProductDTO(entity);
 		
-		return productDTO;
+		return dto;
 	}
 	
 	@Transactional(readOnly = true)
@@ -39,22 +39,22 @@ public class ProductService {
 	
 	
 	@Transactional(readOnly = false)
-	public ProductDTO insert(ProductDTO productDto) {
+	public ProductDTO insert(ProductDTO dto) {
 		
-		Product entity = dtoToEntity(productDto); 
+		Product entity = dtoToEntity(dto); 
 		entity = repository.save(entity);
 		
 		return new ProductDTO(entity);
 	}
 	
 	
-	private Product dtoToEntity(ProductDTO productDto) {
+	private Product dtoToEntity(ProductDTO dto) {
 		Product entity = new Product();
 		
-		entity.setName(productDto.getName());
-		entity.setDescription(productDto.getDescription());
-		entity.setImgUrl(productDto.getImgUrl());
-		entity.setPrice(productDto.getPrice());
+		entity.setName(dto.getName());
+		entity.setDescription(dto.getDescription());
+		entity.setImgUrl(dto.getImgUrl());
+		entity.setPrice(dto.getPrice());
 		
 		return entity;
 	}
