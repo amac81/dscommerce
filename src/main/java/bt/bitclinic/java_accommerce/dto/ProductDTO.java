@@ -1,12 +1,23 @@
 package bt.bitclinic.java_accommerce.dto;
 
 import bt.bitclinic.java_accommerce.entities.Product;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 public class ProductDTO {
 	
 	private Long id;
+	
+	@NotBlank(message = "Campo necessário")
+	@Size(min=3, max=80, message = "Campo precisa de ter de 3 a 80 caracteres")
 	private String name;
+	
+	@NotBlank(message = "Campo necessário")
+	@Size(min = 10,  message = "Campo precisa de ter no minimo 10 caracteres")
 	private String description;
+	
+	@Positive(message = "Preço tem de ser um valor positivo")
 	private Double price;
 	private String imgUrl;
 	
