@@ -1,0 +1,23 @@
+package bt.bitclinic.java_accommerce.dto;
+
+import java.time.Instant;
+import java.util.List;
+
+public class ValidationError extends CustomError{
+	
+	private List<FieldMessage> errors;
+
+	public ValidationError(Instant timestamp, Integer status, String error, String path) {
+		super(timestamp, status, error, path);
+		// TODO Auto-generated constructor stub
+	}
+
+	public List<FieldMessage> getFieldMessages() {
+		return errors;
+	}
+	
+	public void addError (String fieldName, String message) {
+		errors.add(new FieldMessage(fieldName, message));
+	}
+
+}
