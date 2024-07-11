@@ -3,15 +3,19 @@ package bt.bitclinic.java_accommerce.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import bt.bitclinic.java_accommerce.dto.ProductDTO;
 import bt.bitclinic.java_accommerce.entities.Product;
+import bt.bitclinic.java_accommerce.exceptions.DatabaseException;
 import bt.bitclinic.java_accommerce.exceptions.ResourceNotFoundException;
 import bt.bitclinic.java_accommerce.repositories.ProductRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ProductService {
@@ -54,7 +58,7 @@ public class ProductService {
 	
 	@Transactional
 	public ProductDTO update(Long id, ProductDTO dto) {
-		
+		try {
 		//does not go to the database; object monitored by JPA
 		Product entity = repository.getReferenceById(id); 
 		
@@ -62,11 +66,23 @@ public class ProductService {
 		entity = repository.save(entity);
 		
 		return new ProductDTO(entity);
+		}catch(EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Recurso não encontrado");
+		}
 	}
 	
-	@Transactional
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public void deleteById(Long id) {
-		repository.deleteById(id);	
+		if(!repository.existsById(id)) 
+		{
+			throw new ResourceNotFoundException("Recurso não encontrado");
+		}
+		try {
+			repository.deleteById(id);
+		}catch (DataIntegrityViolationException e) 
+		{
+        	throw new DatabaseException("Falha de integridade referencial");
+		}	
 	}
 	
 	private void copyDtoToEntity(ProductDTO dto, Product entity) {
