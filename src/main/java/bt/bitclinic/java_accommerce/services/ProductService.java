@@ -50,14 +50,6 @@ public class ProductService {
 		return new ProductDTO(entity);
 	}
 	
-	
-	private void copyDtoToEntity(ProductDTO dto, Product entity) {
-		entity.setName(dto.getName());
-		entity.setDescription(dto.getDescription());
-		entity.setImgUrl(dto.getImgUrl());
-		entity.setPrice(dto.getPrice());		
-	}
-
 	@Transactional
 	public ProductDTO update(Long id, ProductDTO dto) {
 		
@@ -69,6 +61,20 @@ public class ProductService {
 		
 		return new ProductDTO(entity);
 	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		repository.deleteById(id);	
+	}
+	
+	private void copyDtoToEntity(ProductDTO dto, Product entity) {
+		entity.setName(dto.getName());
+		entity.setDescription(dto.getDescription());
+		entity.setImgUrl(dto.getImgUrl());
+		entity.setPrice(dto.getPrice());		
+	}
+
+	
 	
 
 }
