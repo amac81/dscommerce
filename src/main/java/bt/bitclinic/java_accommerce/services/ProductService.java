@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bt.bitclinic.java_accommerce.dto.ProductDTO;
 import bt.bitclinic.java_accommerce.entities.Product;
+import bt.bitclinic.java_accommerce.exceptions.ResourceNotFoundException;
 import bt.bitclinic.java_accommerce.repositories.ProductRepository;
 
 @Service
@@ -22,7 +23,8 @@ public class ProductService {
 	public ProductDTO findById(Long id) {
 		
 		Optional<Product> result = repository.findById(id);
-		Product entity = result.get();
+		Product entity = result.orElseThrow(
+				()-> new ResourceNotFoundException("Recurso não encontrado"));
 		ProductDTO dto = new ProductDTO(entity);
 		
 		return dto;
