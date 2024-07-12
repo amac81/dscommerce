@@ -4,11 +4,13 @@ import java.time.Instant;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import bt.bitclinic.java_accommerce.dto.CustomError;
+import bt.bitclinic.java_accommerce.dto.ValidationError;
 import bt.bitclinic.java_accommerce.exceptions.DatabaseException;
 import bt.bitclinic.java_accommerce.exceptions.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -38,7 +40,11 @@ public class ControllerExceptionHandler {
 	public ResponseEntity<CustomError> validation(MethodArgumentNotValidException e, HttpServletRequest request) 
 	{
 		HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
-		CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
+		ValidationError err = new ValidationError(Instant.now(), status.value(), "Dados inválidos", request.getRequestURI());
+		
+		for(FieldError f : e.getBindingResult().getFieldErrors()) {
+			err.addError(f.getField(), f.getDefaultMessage());
+		}
 		
 		return ResponseEntity.status(status).body(err);
 	}
