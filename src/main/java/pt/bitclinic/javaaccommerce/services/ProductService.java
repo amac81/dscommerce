@@ -1,4 +1,4 @@
-package bt.bitclinic.java_accommerce.services;
+package pt.bitclinic.javaaccommerce.services;
 
 import java.util.Optional;
 
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import bt.bitclinic.java_accommerce.dto.ProductDTO;
-import bt.bitclinic.java_accommerce.entities.Product;
-import bt.bitclinic.java_accommerce.exceptions.DatabaseException;
-import bt.bitclinic.java_accommerce.exceptions.ResourceNotFoundException;
-import bt.bitclinic.java_accommerce.repositories.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
+import pt.bitclinic.javaaccommerce.dto.ProductDTO;
+import pt.bitclinic.javaaccommerce.entities.Product;
+import pt.bitclinic.javaaccommerce.exceptions.DatabaseException;
+import pt.bitclinic.javaaccommerce.exceptions.ResourceNotFoundException;
+import pt.bitclinic.javaaccommerce.repositories.ProductRepository;
 
 @Service
 public class ProductService {

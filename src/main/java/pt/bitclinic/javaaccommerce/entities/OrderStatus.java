@@ -1,4 +1,4 @@
-package bt.bitclinic.java_accommerce.entities;
+package pt.bitclinic.javaaccommerce.entities;
 
 public enum OrderStatus {
 	WAITING_PAYMENT,

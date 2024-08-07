@@ -1,4 +1,4 @@
-package bt.bitclinic.java_accommerce.controllers;
+package pt.bitclinic.javaaccommerce.controllers;
 
 import java.net.URI;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import bt.bitclinic.java_accommerce.dto.ProductDTO;
-import bt.bitclinic.java_accommerce.services.ProductService;
 import jakarta.validation.Valid;
+import pt.bitclinic.javaaccommerce.dto.ProductDTO;
+import pt.bitclinic.javaaccommerce.services.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")

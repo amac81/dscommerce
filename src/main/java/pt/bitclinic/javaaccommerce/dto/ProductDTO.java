@@ -1,9 +1,9 @@
-package bt.bitclinic.java_accommerce.dto;
+package pt.bitclinic.javaaccommerce.dto;
 
-import bt.bitclinic.java_accommerce.entities.Product;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+import pt.bitclinic.javaaccommerce.entities.Product;
 
 public class ProductDTO {
 	

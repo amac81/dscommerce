@@ -1,4 +1,4 @@
-package bt.bitclinic.java_accommerce.entities;
+package pt.bitclinic.javaaccommerce.entities;
 
 import java.util.Objects;
 

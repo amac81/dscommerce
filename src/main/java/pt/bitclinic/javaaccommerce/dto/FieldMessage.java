@@ -1,4 +1,4 @@
-package bt.bitclinic.java_accommerce.dto;
+package pt.bitclinic.javaaccommerce.dto;
 
 public class FieldMessage {
 	private String fieldName;

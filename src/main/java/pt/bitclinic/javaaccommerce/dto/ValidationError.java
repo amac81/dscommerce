@@ -1,4 +1,4 @@
-package bt.bitclinic.java_accommerce.dto;
+package pt.bitclinic.javaaccommerce.dto;
 
 import java.time.Instant;
 import java.util.ArrayList;

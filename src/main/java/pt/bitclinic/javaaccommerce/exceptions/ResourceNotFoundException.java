@@ -1,4 +1,4 @@
-package bt.bitclinic.java_accommerce.exceptions;
+package pt.bitclinic.javaaccommerce.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;
