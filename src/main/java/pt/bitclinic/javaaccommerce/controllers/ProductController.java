@@ -28,6 +28,7 @@ public class ProductController{
 	@Autowired
 	private ProductService service;
 	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ProductDTO> getById(@PathVariable Long id) {
 		ProductDTO dto = service.findById(id); 
@@ -41,7 +42,6 @@ public class ProductController{
 		
 		return ResponseEntity.ok(page);
 	}
-	
 	
 	@PostMapping
 	public ResponseEntity<ProductDTO> insert(@Valid @RequestBody ProductDTO dto) {
