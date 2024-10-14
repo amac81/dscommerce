@@ -1,4 +1,4 @@
-package pt.bitclinic.javaaccommerce.controllers;
+	package pt.bitclinic.javaaccommerce.controllers;
 
 import java.net.URI;
 
@@ -38,6 +38,7 @@ public class ProductController{
 	
 	@GetMapping
 	public ResponseEntity<Page<ProductDTO>> getAll(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
+		
 		Page<ProductDTO> page = service.findAll(name, pageable); 
 		
 		return ResponseEntity.ok(page);
