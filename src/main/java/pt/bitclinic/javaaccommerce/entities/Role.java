@@ -4,7 +4,6 @@ import java.util.Objects;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +21,6 @@ public class Role implements GrantedAuthority {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(unique = true)
 	private String authority;
 
 	public Role() {

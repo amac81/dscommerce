@@ -37,12 +37,11 @@ public class User implements UserDetails {
 	private String phone;
 	private LocalDate birthDate;
 	private String password;
-	//private String[] roles;
-	
+
 	@ManyToMany
 	@JoinTable(name = "tb_user_role",
 	        joinColumns = @JoinColumn(name = "user_id"),
-	        inverseJoinColumns = @JoinColumn(name = "role_id"))	
+	        inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
 	
