@@ -49,7 +49,7 @@ public class ProductService {
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllComplete(String name, Pageable pageable) {
 		
-		Page<Product> result = repository.searchByName(name, pageable);
+		Page<Product> result = repository.findProductsCategories(name, pageable);
 		
 		//with lambda expression
 		return result.map(x -> new ProductDTO(x));

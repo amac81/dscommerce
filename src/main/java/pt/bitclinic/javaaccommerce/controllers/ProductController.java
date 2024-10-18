@@ -44,7 +44,7 @@ public class ProductController{
 	}
 	
 	@GetMapping(value ="/all")
-	public ResponseEntity<Page<ProductDTO>> getAll(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
+	public ResponseEntity<Page<ProductDTO>> getAllComplete(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
 		Page<ProductDTO> page = service.findAllComplete(name, pageable); 
 		return ResponseEntity.ok(page);
 	}
