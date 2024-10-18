@@ -1,5 +1,5 @@
 
-INSERT INTO tb_role (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO tb_role (authority) VALUES ('ROLE_CLIENT');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
 
 INSERT INTO tb_user (name, email, phone, password, birth_date) VALUES ('Alex Green', 'alex@gmail.com', '977777777', '$2a$10$DPNhP0vHYetQXBkmSKSk7.uS.8..7pRUVdvOmP5YHCraXl98svqSq', '1987-12-13');

@@ -3,11 +3,16 @@ package pt.bitclinic.javaaccommerce.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import pt.bitclinic.javaaccommerce.dto.UserDTO;
 import pt.bitclinic.javaaccommerce.entities.Role;
 import pt.bitclinic.javaaccommerce.entities.User;
 import pt.bitclinic.javaaccommerce.projections.UserDetailsProjection;
@@ -36,5 +41,25 @@ public class UserService implements UserDetailsService{
 		}
 		return user;
 	}
+	
+	protected User authenticated() {
+		
+		try {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			Jwt jwtPrincipal = (Jwt) authentication.getPrincipal();
+			String username = jwtPrincipal.getClaim("username");
+			return userRepository.findByEmail(username).get();
+		}
+		catch (Exception e) {
+			throw new UsernameNotFoundException("Email not found.");
+		}		
+	}
+	
+	@Transactional(readOnly = true)
+	public UserDTO getMe() {
+		User user = authenticated();
+		return new UserDTO(user);
+	}
+	
 	
 }
