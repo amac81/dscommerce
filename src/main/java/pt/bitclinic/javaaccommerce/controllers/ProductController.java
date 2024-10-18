@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import jakarta.validation.Valid;
 import pt.bitclinic.javaaccommerce.dto.ProductDTO;
+import pt.bitclinic.javaaccommerce.dto.ProductMinDTO;
 import pt.bitclinic.javaaccommerce.services.ProductService;
 
 @RestController
@@ -38,9 +39,9 @@ public class ProductController{
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<ProductDTO>> getAll(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
+	public ResponseEntity<Page<ProductMinDTO>> getAll(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
 		
-		Page<ProductDTO> page = service.findAll(name, pageable); 
+		Page<ProductMinDTO> page = service.findAll(name, pageable); 
 		
 		return ResponseEntity.ok(page);
 	}

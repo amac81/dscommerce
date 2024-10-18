@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityNotFoundException;
 import pt.bitclinic.javaaccommerce.dto.ProductDTO;
+import pt.bitclinic.javaaccommerce.dto.ProductMinDTO;
 import pt.bitclinic.javaaccommerce.entities.Product;
 import pt.bitclinic.javaaccommerce.exceptions.DatabaseException;
 import pt.bitclinic.javaaccommerce.exceptions.ResourceNotFoundException;
@@ -35,12 +36,12 @@ public class ProductService {
 	}
 	
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAll(String name, Pageable pageable) {
+	public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
 		
 		Page<Product> result = repository.searchByName(name, pageable);
 		
 		//with lambda expression
-		return result.map(x -> new ProductDTO(x));
+		return result.map(x -> new ProductMinDTO(x));
 	}
 	
 	
