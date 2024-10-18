@@ -11,8 +11,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityNotFoundException;
+import pt.bitclinic.javaaccommerce.dto.CategoryDTO;
 import pt.bitclinic.javaaccommerce.dto.ProductDTO;
 import pt.bitclinic.javaaccommerce.dto.ProductMinDTO;
+import pt.bitclinic.javaaccommerce.entities.Category;
 import pt.bitclinic.javaaccommerce.entities.Product;
 import pt.bitclinic.javaaccommerce.exceptions.DatabaseException;
 import pt.bitclinic.javaaccommerce.exceptions.ResourceNotFoundException;
@@ -36,12 +38,21 @@ public class ProductService {
 	}
 	
 	@Transactional(readOnly = true)
-	public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
+	public Page<ProductMinDTO> findAllMin(String name, Pageable pageable) {
 		
 		Page<Product> result = repository.searchByName(name, pageable);
 		
 		//with lambda expression
 		return result.map(x -> new ProductMinDTO(x));
+	}
+	
+	@Transactional(readOnly = true)
+	public Page<ProductDTO> findAllComplete(String name, Pageable pageable) {
+		
+		Page<Product> result = repository.searchByName(name, pageable);
+		
+		//with lambda expression
+		return result.map(x -> new ProductDTO(x));
 	}
 	
 	
@@ -90,7 +101,19 @@ public class ProductService {
 		entity.setName(dto.getName());
 		entity.setDescription(dto.getDescription());
 		entity.setImgUrl(dto.getImgUrl());
-		entity.setPrice(dto.getPrice());		
+		entity.setPrice(dto.getPrice());
+		
+		//clear categories List
+		entity.getCategories().clear();
+		
+		for(CategoryDTO catDto : dto.getCategories() ) {
+			
+			Category cat = new Category();
+			cat.setId(catDto.getId());
+			cat.setName(catDto.getName());
+			
+			entity.getCategories().add(cat);
+		}
 	}
 
 	

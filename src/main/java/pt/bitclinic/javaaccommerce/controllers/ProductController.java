@@ -34,15 +34,18 @@ public class ProductController{
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ProductDTO> getById(@PathVariable Long id) {
 		ProductDTO dto = service.findById(id); 
-		
 		return ResponseEntity.ok(dto);
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<ProductMinDTO>> getAll(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
-		
-		Page<ProductMinDTO> page = service.findAll(name, pageable); 
-		
+	public ResponseEntity<Page<ProductMinDTO>> getAllMin(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
+		Page<ProductMinDTO> page = service.findAllMin(name, pageable); 
+		return ResponseEntity.ok(page);
+	}
+	
+	@GetMapping(value ="/all")
+	public ResponseEntity<Page<ProductDTO>> getAll(@RequestParam(name="name", defaultValue="") String name, Pageable pageable) {
+		Page<ProductDTO> page = service.findAllComplete(name, pageable); 
 		return ResponseEntity.ok(page);
 	}
 	

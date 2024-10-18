@@ -32,6 +32,15 @@ public class Product implements Serializable{
 	private Double price;
 	private String imgUrl;
 	
+	
+	/* PROBLEM N+1 CONSULTAS
+	 * 
+	 * https://github.com/devsuperior/aulao_nmais1
+	 * https://www.youtube.com/watch?v=sqbqoR-lMf8&feature=youtu.be&themeRefresh=1
+	 * 
+	 * */
+	
+	
 	@ManyToMany
 	@JoinTable(name = "tb_product_category",
 	joinColumns = @JoinColumn(name = "product_id"),
