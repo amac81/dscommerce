@@ -9,5 +9,4 @@ class JavaAccommerceApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
