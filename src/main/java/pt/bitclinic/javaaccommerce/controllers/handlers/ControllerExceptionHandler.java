@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import pt.bitclinic.javaaccommerce.dto.CustomError;
 import pt.bitclinic.javaaccommerce.dto.ValidationError;
 import pt.bitclinic.javaaccommerce.exceptions.DatabaseException;
+import pt.bitclinic.javaaccommerce.exceptions.ForbiddenException;
 import pt.bitclinic.javaaccommerce.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
@@ -31,6 +32,15 @@ public class ControllerExceptionHandler {
 	public ResponseEntity<CustomError> database(DatabaseException e, HttpServletRequest request) 
 	{
 		HttpStatus status = HttpStatus.BAD_REQUEST;
+		CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
+		
+		return ResponseEntity.status(status).body(err);
+	}
+	
+	@ExceptionHandler(ForbiddenException.class)
+	public ResponseEntity<CustomError> forbidden(ForbiddenException e, HttpServletRequest request) 
+	{
+		HttpStatus status = HttpStatus.FORBIDDEN;
 		CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
 		
 		return ResponseEntity.status(status).body(err);

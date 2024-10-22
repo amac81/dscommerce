@@ -36,6 +36,8 @@ public class OrderService {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private AuthService authService;	
 	
 	@Transactional(readOnly = true)
 	public OrderDTO findById(Long id) {
@@ -43,6 +45,9 @@ public class OrderService {
 		Optional<Order> result = repository.findById(id);
 		Order entity = result.orElseThrow(
 				()-> new ResourceNotFoundException("Recurso não encontrado"));
+		
+		authService.validadeSelfOrAdmin(entity.getClient().getId());
+		
 		OrderDTO dto = new OrderDTO(entity);
 		
 		return dto;
