@@ -1,5 +1,6 @@
 package pt.bitclinic.javaaccommerce.services;
 
+import java.time.Instant;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,18 +9,33 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.persistence.EntityNotFoundException;
 import pt.bitclinic.javaaccommerce.dto.OrderDTO;
+import pt.bitclinic.javaaccommerce.dto.OrderItemDTO;
 import pt.bitclinic.javaaccommerce.entities.Order;
+import pt.bitclinic.javaaccommerce.entities.OrderItem;
+import pt.bitclinic.javaaccommerce.entities.OrderStatus;
+import pt.bitclinic.javaaccommerce.entities.Product;
 import pt.bitclinic.javaaccommerce.exceptions.DatabaseException;
 import pt.bitclinic.javaaccommerce.exceptions.ResourceNotFoundException;
+import pt.bitclinic.javaaccommerce.repositories.OrderItemRepository;
 import pt.bitclinic.javaaccommerce.repositories.OrderRepository;
+import pt.bitclinic.javaaccommerce.repositories.ProductRepository;
 
 @Service
 public class OrderService {
 	
 	@Autowired
 	private OrderRepository repository;
+	
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
+		
+	@Autowired
+	private UserService userService;
+	
 	
 	@Transactional(readOnly = true)
 	public OrderDTO findById(Long id) {
@@ -37,28 +53,24 @@ public class OrderService {
 	public OrderDTO insert(OrderDTO dto) {
 		
 		Order entity = new Order(); 
-		copyDtoToEntity(dto, entity);
 		
-		copyDtoToEntity(dto, entity);
+		entity.setMoment(Instant.now());
+		entity.setStatus(OrderStatus.WAITING_PAYMENT);
+		entity.setClient(userService.authenticated());
+		
+		
+		for(OrderItemDTO itemDto : dto.getItems()) {
+			Product product = productRepository.getReferenceById(itemDto.getProductId());
+			OrderItem orderItem = new OrderItem(entity, product, itemDto.getQuantity(), product.getPrice());
+			entity.getItems().add(orderItem);
+		}
+		
 		entity = repository.save(entity);
+		orderItemRepository.saveAll(entity.getItems());
 		
 		return new OrderDTO(entity);
 	}
 	
-	@Transactional
-	public OrderDTO update(Long id, OrderDTO dto) {
-		try {
-		//does not go to the database; object monitored by JPA
-			Order entity = repository.getReferenceById(id); 
-		
-			copyDtoToEntity(dto, entity);		
-			entity = repository.save(entity);
-		
-			return new OrderDTO(entity);
-		}catch(EntityNotFoundException e) {
-			throw new ResourceNotFoundException("Recurso não encontrado");
-		}
-	}
 	
 	@Transactional(propagation = Propagation.SUPPORTS)
 	public void deleteById(Long id) {
@@ -74,19 +86,7 @@ public class OrderService {
 		}	
 	}
 	
-	private void copyDtoToEntity(OrderDTO dto, Order entity) {
-		entity.setClient(entity.getClient());
-		entity.setId(dto.getId());
-		entity.setMoment(dto.getMoment());
-		entity.getPayment().setId(dto.getPayment().getId());
-		entity.getPayment().setMoment(dto.getPayment().getMoment());
-		
-		
-		entity.setStatus(dto.getStatus());
-		
-		
-	}
-
+	
 	
 	
 
