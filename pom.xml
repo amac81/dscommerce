@@ -11,8 +11,8 @@
 	<groupId>bt.bitclinic</groupId>
 	<artifactId>java-accommerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>java-accommerce</name>
-	<description>ACcommerce</description>
+	<name>DSCommerce</name>
+	<description>DSCommerce</description>
 	<url/>
 	<licenses>
 		<license/>
