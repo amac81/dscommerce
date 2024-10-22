@@ -60,7 +60,7 @@ public class OrderDTO {
 	public PaymentDTO getPayment() {
 		return payment;
 	}
-
+	
 	public List<OrderItemDTO> getItems() {
 		return items;
 	}

@@ -25,14 +25,14 @@ public class OrderController{
 	@Autowired
 	private OrderService service;
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<OrderDTO> getById(@PathVariable Long id) {
 		OrderDTO dto = service.findById(id); 
 		return ResponseEntity.ok(dto);
 	}
 	
-	@PreAuthorize("hasAnyRole('ROLE_CLIENT')")
+	@PreAuthorize("hasRole('ROLE_CLIENT')")
 	@PostMapping
 	public ResponseEntity<OrderDTO> insert(@Valid @RequestBody OrderDTO dto) {
 		dto = service.insert(dto); 
