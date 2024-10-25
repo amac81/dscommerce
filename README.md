@@ -1,6 +1,6 @@
 # Projecto dscommerce
 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/amac81/java-accommerce/blob/main/LICENSE) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/amac81/dscommerce/blob/main/LICENSE) 
 
 # Acerca do projeto
 
