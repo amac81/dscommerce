@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.exceptions;
+package pt.bitclinic.dscommerce.exceptions;
 
 public class DatabaseException extends RuntimeException{
 

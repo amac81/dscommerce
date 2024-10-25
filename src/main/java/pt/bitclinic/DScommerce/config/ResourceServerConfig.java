@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.config;
+package pt.bitclinic.dscommerce.config;
 
 import java.util.Arrays;
 

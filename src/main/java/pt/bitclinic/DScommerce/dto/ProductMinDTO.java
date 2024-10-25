@@ -1,6 +1,6 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
-import pt.bitclinic.DSCommerce.entities.Product;
+import pt.bitclinic.dscommerce.entities.Product;
 
 public class ProductMinDTO {
 	

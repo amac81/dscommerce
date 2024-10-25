@@ -1,10 +1,10 @@
-package pt.bitclinic.DSCommerce.services;
+package pt.bitclinic.dscommerce.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pt.bitclinic.DSCommerce.entities.User;
-import pt.bitclinic.DSCommerce.exceptions.ForbiddenException;
+import pt.bitclinic.dscommerce.entities.User;
+import pt.bitclinic.dscommerce.exceptions.ForbiddenException;
 
 @Service
 public class AuthService {

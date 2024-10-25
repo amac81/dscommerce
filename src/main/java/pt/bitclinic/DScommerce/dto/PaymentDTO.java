@@ -1,8 +1,8 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
 import java.time.Instant;
 
-import pt.bitclinic.DSCommerce.entities.Payment;
+import pt.bitclinic.dscommerce.entities.Payment;
 
 public class PaymentDTO {
 

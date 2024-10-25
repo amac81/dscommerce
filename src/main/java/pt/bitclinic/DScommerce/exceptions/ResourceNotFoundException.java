@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.exceptions;
+package pt.bitclinic.dscommerce.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;

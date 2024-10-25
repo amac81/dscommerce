@@ -1,10 +1,10 @@
-package pt.bitclinic.DSCommerce;
+package pt.bitclinic.dscommerce;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaDSCommerceApplicationTests {
+class DscommerceApplicationTests {
 
 	@Test
 	void contextLoads() {

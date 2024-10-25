@@ -1,11 +1,11 @@
-package pt.bitclinic.DSCommerce.repositories;
+package pt.bitclinic.dscommerce.repositories;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import pt.bitclinic.DSCommerce.entities.Product;
+import pt.bitclinic.dscommerce.entities.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long>
 {

@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
 public class FieldMessage {
 	private String fieldName;

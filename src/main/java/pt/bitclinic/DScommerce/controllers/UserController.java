@@ -1,4 +1,4 @@
-	package pt.bitclinic.DSCommerce.controllers;
+	package pt.bitclinic.dscommerce.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pt.bitclinic.DSCommerce.services.UserService;
-import pt.bitclinic.DSCommerce.dto.UserDTO;
+import pt.bitclinic.dscommerce.dto.UserDTO;
+import pt.bitclinic.dscommerce.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")

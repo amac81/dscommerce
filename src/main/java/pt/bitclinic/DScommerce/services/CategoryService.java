@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.services;
+package pt.bitclinic.dscommerce.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +10,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityNotFoundException;
-import pt.bitclinic.DSCommerce.repositories.CategoryRepository;
-import pt.bitclinic.DSCommerce.dto.CategoryDTO;
-import pt.bitclinic.DSCommerce.entities.Category;
-import pt.bitclinic.DSCommerce.exceptions.DatabaseException;
-import pt.bitclinic.DSCommerce.exceptions.ResourceNotFoundException;
+import pt.bitclinic.dscommerce.dto.CategoryDTO;
+import pt.bitclinic.dscommerce.entities.Category;
+import pt.bitclinic.dscommerce.exceptions.DatabaseException;
+import pt.bitclinic.dscommerce.exceptions.ResourceNotFoundException;
+import pt.bitclinic.dscommerce.repositories.CategoryRepository;
 
 @Service
 public class CategoryService {

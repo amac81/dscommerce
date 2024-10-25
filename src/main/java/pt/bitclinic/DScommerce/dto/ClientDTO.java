@@ -1,6 +1,6 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
-import pt.bitclinic.DSCommerce.entities.User;
+import pt.bitclinic.dscommerce.entities.User;
 
 public class ClientDTO {
 	private Long id;

@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.entities;
+package pt.bitclinic.dscommerce.entities;
 
 import java.io.Serializable;
 import java.util.Objects;

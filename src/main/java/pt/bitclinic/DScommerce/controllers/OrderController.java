@@ -1,4 +1,4 @@
-	package pt.bitclinic.DSCommerce.controllers;
+	package pt.bitclinic.dscommerce.controllers;
 
 import java.net.URI;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import jakarta.validation.Valid;
-import pt.bitclinic.DSCommerce.services.OrderService;
-import pt.bitclinic.DSCommerce.dto.OrderDTO;
+import pt.bitclinic.dscommerce.dto.OrderDTO;
+import pt.bitclinic.dscommerce.services.OrderService;
 
 @RestController
 @RequestMapping(value = "/orders")

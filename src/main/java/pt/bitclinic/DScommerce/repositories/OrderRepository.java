@@ -1,8 +1,8 @@
-package pt.bitclinic.DSCommerce.repositories;
+package pt.bitclinic.dscommerce.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import pt.bitclinic.DSCommerce.entities.Order;
+import pt.bitclinic.dscommerce.entities.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Long>
 {

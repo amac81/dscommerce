@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.services;
+package pt.bitclinic.dscommerce.services;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import pt.bitclinic.DSCommerce.repositories.OrderItemRepository;
-import pt.bitclinic.DSCommerce.repositories.OrderRepository;
-import pt.bitclinic.DSCommerce.repositories.ProductRepository;
-import pt.bitclinic.DSCommerce.dto.OrderDTO;
-import pt.bitclinic.DSCommerce.dto.OrderItemDTO;
-import pt.bitclinic.DSCommerce.entities.Order;
-import pt.bitclinic.DSCommerce.entities.OrderItem;
-import pt.bitclinic.DSCommerce.entities.OrderStatus;
-import pt.bitclinic.DSCommerce.entities.Product;
-import pt.bitclinic.DSCommerce.exceptions.DatabaseException;
-import pt.bitclinic.DSCommerce.exceptions.ResourceNotFoundException;
+import pt.bitclinic.dscommerce.dto.OrderDTO;
+import pt.bitclinic.dscommerce.dto.OrderItemDTO;
+import pt.bitclinic.dscommerce.entities.Order;
+import pt.bitclinic.dscommerce.entities.OrderItem;
+import pt.bitclinic.dscommerce.entities.OrderStatus;
+import pt.bitclinic.dscommerce.entities.Product;
+import pt.bitclinic.dscommerce.exceptions.DatabaseException;
+import pt.bitclinic.dscommerce.exceptions.ResourceNotFoundException;
+import pt.bitclinic.dscommerce.repositories.OrderItemRepository;
+import pt.bitclinic.dscommerce.repositories.OrderRepository;
+import pt.bitclinic.dscommerce.repositories.ProductRepository;
 
 @Service
 public class OrderService {

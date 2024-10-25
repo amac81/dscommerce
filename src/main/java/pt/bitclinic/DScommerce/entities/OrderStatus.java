@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.entities;
+package pt.bitclinic.dscommerce.entities;
 
 public enum OrderStatus {
 	WAITING_PAYMENT,

@@ -1,6 +1,6 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
-import pt.bitclinic.DSCommerce.entities.Category;
+import pt.bitclinic.dscommerce.entities.Category;
 
 public class CategoryDTO {
 	private Long id;

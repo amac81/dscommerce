@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-import pt.bitclinic.DSCommerce.entities.Product;
+import pt.bitclinic.dscommerce.entities.Product;
 
 public class ProductDTO {
 	

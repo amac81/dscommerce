@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.projections;
+package pt.bitclinic.dscommerce.projections;
 
 public interface UserDetailsProjection {
 	String getUsername();

@@ -1,13 +1,13 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.validation.constraints.NotEmpty;
-import pt.bitclinic.DSCommerce.entities.Order;
-import pt.bitclinic.DSCommerce.entities.OrderItem;
-import pt.bitclinic.DSCommerce.entities.OrderStatus;
+import pt.bitclinic.dscommerce.entities.Order;
+import pt.bitclinic.dscommerce.entities.OrderItem;
+import pt.bitclinic.dscommerce.entities.OrderStatus;
 
 public class OrderDTO {
 	private Long id;

@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.controllers.handlers;
+package pt.bitclinic.dscommerce.controllers.handlers;
 
 import java.time.Instant;
 
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import jakarta.servlet.http.HttpServletRequest;
-import pt.bitclinic.DSCommerce.dto.CustomError;
-import pt.bitclinic.DSCommerce.dto.ValidationError;
-import pt.bitclinic.DSCommerce.exceptions.DatabaseException;
-import pt.bitclinic.DSCommerce.exceptions.ForbiddenException;
-import pt.bitclinic.DSCommerce.exceptions.ResourceNotFoundException;
+import pt.bitclinic.dscommerce.dto.CustomError;
+import pt.bitclinic.dscommerce.dto.ValidationError;
+import pt.bitclinic.dscommerce.exceptions.DatabaseException;
+import pt.bitclinic.dscommerce.exceptions.ForbiddenException;
+import pt.bitclinic.dscommerce.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {

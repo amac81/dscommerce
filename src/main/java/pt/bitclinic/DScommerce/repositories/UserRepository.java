@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.repositories;
+package pt.bitclinic.dscommerce.repositories;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import pt.bitclinic.DSCommerce.entities.User;
-import pt.bitclinic.DSCommerce.projections.UserDetailsProjection;
+import pt.bitclinic.dscommerce.entities.User;
+import pt.bitclinic.dscommerce.projections.UserDetailsProjection;
 
 public interface UserRepository extends JpaRepository<User, Long>
 {

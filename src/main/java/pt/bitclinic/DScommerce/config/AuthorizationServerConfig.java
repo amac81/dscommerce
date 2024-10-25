@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.config;
+package pt.bitclinic.dscommerce.config;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -49,9 +49,9 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 
-import pt.bitclinic.DSCommerce.config.customgrant.CustomPasswordAuthenticationConverter;
-import pt.bitclinic.DSCommerce.config.customgrant.CustomPasswordAuthenticationProvider;
-import pt.bitclinic.DSCommerce.config.customgrant.CustomUserAuthorities;
+import pt.bitclinic.dscommerce.config.customgrant.CustomPasswordAuthenticationConverter;
+import pt.bitclinic.dscommerce.config.customgrant.CustomPasswordAuthenticationProvider;
+import pt.bitclinic.dscommerce.config.customgrant.CustomUserAuthorities;
 
 @Configuration
 public class AuthorizationServerConfig {

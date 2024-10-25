@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.entities;
+package pt.bitclinic.dscommerce.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

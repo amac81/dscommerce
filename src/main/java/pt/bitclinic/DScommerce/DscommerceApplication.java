@@ -1,12 +1,12 @@
-package pt.bitclinic.DSCommerce;
+package pt.bitclinic.dscommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaDSCommerceApplication{
+public class DscommerceApplication{
 	
 	public static void main(String[] args) {
-		SpringApplication.run(JavaDSCommerceApplication.class, args);
+		SpringApplication.run(DscommerceApplication.class, args);
 	}
 }

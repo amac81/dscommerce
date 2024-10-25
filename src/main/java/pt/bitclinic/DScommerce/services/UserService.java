@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.services;
+package pt.bitclinic.dscommerce.services;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pt.bitclinic.DSCommerce.repositories.UserRepository;
-import pt.bitclinic.DSCommerce.dto.UserDTO;
-import pt.bitclinic.DSCommerce.entities.Role;
-import pt.bitclinic.DSCommerce.entities.User;
-import pt.bitclinic.DSCommerce.projections.UserDetailsProjection;
+import pt.bitclinic.dscommerce.dto.UserDTO;
+import pt.bitclinic.dscommerce.entities.Role;
+import pt.bitclinic.dscommerce.entities.User;
+import pt.bitclinic.dscommerce.projections.UserDetailsProjection;
+import pt.bitclinic.dscommerce.repositories.UserRepository;
 
 @Service
 public class UserService implements UserDetailsService{

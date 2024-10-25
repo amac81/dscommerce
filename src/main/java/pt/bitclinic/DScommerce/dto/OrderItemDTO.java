@@ -1,6 +1,6 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
-import pt.bitclinic.DSCommerce.entities.OrderItem;
+import pt.bitclinic.dscommerce.entities.OrderItem;
 
 public class OrderItemDTO {
 	private Long productId;

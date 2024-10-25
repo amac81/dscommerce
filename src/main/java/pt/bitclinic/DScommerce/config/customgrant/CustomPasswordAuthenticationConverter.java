@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.config.customgrant;
+package pt.bitclinic.dscommerce.config.customgrant;
 
 import java.util.Arrays;
 import java.util.HashMap;

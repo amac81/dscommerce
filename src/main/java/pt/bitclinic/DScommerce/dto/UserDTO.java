@@ -1,4 +1,4 @@
-package pt.bitclinic.DSCommerce.dto;
+package pt.bitclinic.dscommerce.dto;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import pt.bitclinic.DSCommerce.entities.User;
+import pt.bitclinic.dscommerce.entities.User;
 
 public class UserDTO {
 	private Long id;
