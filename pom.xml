@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>bt.bitclinic</groupId>
-	<artifactId>java-accommerce</artifactId>
+	<artifactId>dscommerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>dscommerce</name>
 	<description>dscommerce</description>
